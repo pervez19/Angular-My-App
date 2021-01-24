@@ -1,0 +1,65 @@
+
+<h1>Update Profile</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        
+        <div class="form-group col-5">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+        </div>
+
+        <div class="form-group col-5">
+            <label>Phone</label>
+            <input  type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">Phone Number is required</div>
+                <div *ngIf="f.phone.errors.pattern">Valid Pattern is required</div>
+                <div *ngIf="f.phone.errors.maxLength">Max Length 11</div>
+                <div *ngIf="f.phone.errors.minLength">Min Length 11</div>
+            </div>
+        </div>
+
+         <div class="form-group col-5">
+            <label>Date of Birth</label>
+            <input type="date" formControlName="dateOfBirth" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
+            <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+                <div *ngIf="f.dateOfBirth.errors.required">Date Of Birth is required</div>
+            </div>
+        </div> 
+
+        <div class="form-group col-5">
+            <label>Gender</label>
+                <div class="custom-control custom-radio">
+                    <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
+                    <label class="custom-control-label" for="male">Male</label>
+                </div>
+
+                <div class="custom-control custom-radio">
+                    <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+                    <label class="custom-control-label" for="female">Female</label>
+                </div>
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                <div *ngIf="f.gender.errors.required">Gender is required</div>
+            </div>
+        </div>
+
+    </div>
+   
+    <div class="form-group">
+        <button type="submit" [disabled]="loading" class="btn btn-primary mr-2">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Update
+        </button>
+        <a routerLink="../" href="" class="btn btn-link">Cancel</a>
+    </div>
+</form>

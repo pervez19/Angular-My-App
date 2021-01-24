@@ -1,0 +1,10 @@
+<h1>My Profile</h1>
+<p>
+    <strong>Name: </strong> {{account.firstName}} {{account.lastName}}<br />
+    <strong>Email: </strong> {{account.email}}<br />
+    <strong>Date of Birth: </strong> {{account.dateOfBirth | date : 'fullDate'}}<br />
+    <strong>Gender: </strong> {{account.gender}}<br />
+    <strong>Phone: </strong> {{account.phone}}<br />
+</p>
+
+<p><a routerLink="update">Update Profile</a></p>
